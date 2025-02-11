@@ -5,10 +5,24 @@ import java.util.LinkedList;
 import java.util.stream.Collectors;
 
 public final class PayrollGenerator {
+    /**
+     * Default path for the employee file.
+     */
     private static final String DEFAULT_EMPLOYEE_FILE = "resources/employees.csv";
+
+    /**
+     * Default path for the payroll file.
+     */
     private static final String DEFAULT_PAYROLL_FILE = "resources/pay_stubs.csv";
+
+    /**
+     * Default path for the time card file.
+     */
     private static final String DEFAULT_TIME_CARD_FILE = "resources/time_cards.csv";
 
+    /**
+     * Private constructor to prevent instantiation.
+     */
     private PayrollGenerator() {}
 
     public static void main(String[] args) {

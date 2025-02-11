@@ -1,11 +1,14 @@
 package student;
 
 /**
- * 处理命令行参数的内部类
+ * Handles command line arguments.
  */
 public final class Arguments {
+    /** The employee file path. */
     private String employeeFile;
+    /** The payroll file path. */
     private String payrollFile;
+    /** The time cards file path. */
     private String timeCards;
 
     private static final String DEFAULT_EMPLOYEE_FILE = "resources/employees.csv";
@@ -30,6 +33,12 @@ public final class Arguments {
         return timeCards;
     }
 
+    /**
+     * Processes command line arguments.
+     *
+     * @param args the command line arguments
+     * @return an Arguments object containing the file paths
+     */
     public static Arguments process(String[] args) {
         Arguments arguments = new Arguments();
         for (int i = 0; i < args.length; i++) {

@@ -1,12 +1,18 @@
 package student;
 
+/**
+ * Utility class for building employee and time card objects from CSV data.
+ */
 public final class Builder {
 
     private Builder() {
     }
 
     /**
-     * initiate `employees.csv`，create `HourlyEmployee` or `SalaryEmployee`
+     * Initiates `employees.csv`, creating `HourlyEmployee` or `SalaryEmployee`.
+     *
+     * @param csv the CSV line containing employee data
+     * @return an IEmployee object
      */
     public static IEmployee buildEmployeeFromCSV(String csv) {
         if (csv == null || csv.trim().isEmpty()) {
@@ -18,7 +24,6 @@ public final class Builder {
             throw new IllegalArgumentException("Invalid CSV format: " + csv);
         }
 
-        // 去掉每个部分的空格，防止 CSV 解析错误
         String type = parts[0].trim();
         String name = parts[1].trim();
         String id = parts[2].trim();
@@ -42,7 +47,10 @@ public final class Builder {
     }
 
     /**
-     * 解析 `time_cards.csv`，创建 `TimeCard`
+     * Parses `time_cards.csv`, creating `TimeCard`.
+     *
+     * @param csv the CSV line containing time card data
+     * @return an ITimeCard object
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
         if (csv == null || csv.trim().isEmpty()) {
