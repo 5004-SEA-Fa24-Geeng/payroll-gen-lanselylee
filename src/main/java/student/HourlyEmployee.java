@@ -121,7 +121,7 @@ public class HourlyEmployee implements IEmployee {
         BigDecimal regularPay = BigDecimal.valueOf(payRate).multiply(regularHours);
         BigDecimal overtimePay = BigDecimal.valueOf(payRate).multiply(BigDecimal.valueOf(1.5)).multiply(overtimeHours);
         BigDecimal grossPay = regularPay.add(overtimePay).setScale(2, RoundingMode.HALF_UP);
-        System.out.println("grossPay: " + grossPay);
+        // System.out.println("grossPay: " + grossPay);
         BigDecimal pretaxDeductionsBD = BigDecimal.valueOf(pretaxDeductions);
         BigDecimal taxableIncome = grossPay.subtract(pretaxDeductionsBD).max(BigDecimal.ZERO);
 
@@ -129,7 +129,7 @@ public class HourlyEmployee implements IEmployee {
         BigDecimal netPay = taxableIncome.subtract(tax).setScale(2, RoundingMode.HALF_UP);
 
         // Debugging output before updating YTD values
-        System.out.println("Before Update - ytdEarnings: " + ytdEarnings + ", ytdTaxesPaid: " + ytdTaxesPaid);
+        // System.out.println("Before Update - ytdEarnings: " + ytdEarnings + ", ytdTaxesPaid: " + ytdTaxesPaid);
 
         // Update YTD values
         ytdEarnings = BigDecimal.valueOf(ytdEarnings).add(netPay).setScale(2, RoundingMode.HALF_UP).doubleValue();
@@ -140,7 +140,7 @@ public class HourlyEmployee implements IEmployee {
         ytdTaxesPaid = BigDecimal.valueOf(ytdTaxesPaid).stripTrailingZeros().doubleValue();
         
         // Debugging output after updating YTD values
-        System.out.println("After Update - ytdEarnings: " + ytdEarnings + ", ytdTaxesPaid: " + ytdTaxesPaid);
+        // System.out.println("After Update - ytdEarnings: " + ytdEarnings + ", ytdTaxesPaid: " + ytdTaxesPaid);
 
         return new PayStub(this, netPay.doubleValue(), tax.doubleValue());
     }
