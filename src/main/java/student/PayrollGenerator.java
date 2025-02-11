@@ -23,8 +23,15 @@ public final class PayrollGenerator {
     /**
      * Private constructor to prevent instantiation.
      */
-    private PayrollGenerator() {}
+    private PayrollGenerator() { }
 
+    /**
+     * Main method that processes employee payroll.
+     * Reads employee and time card data from files, generates pay stubs,
+     * and writes updated employee information and pay stubs back to files.
+     *
+     * @param args Command line arguments for file paths
+     */
     public static void main(String[] args) {
         Arguments arguments = Arguments.process(args);
 

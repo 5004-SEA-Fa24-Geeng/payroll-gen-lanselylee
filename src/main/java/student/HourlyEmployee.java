@@ -30,7 +30,8 @@ public class HourlyEmployee implements IEmployee {
      * @param ytdTaxesPaid year-to-date taxes paid by the employee
      * @param pretaxDeductions pre-tax deductions for the employee
      */
-    public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
+    public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, 
+            double ytdTaxesPaid, double pretaxDeductions) {
         this.name = name;
         this.id = id;
         this.payRate = payRate;
@@ -105,6 +106,7 @@ public class HourlyEmployee implements IEmployee {
 
     @Override
     public String toCSV() {
-        return String.format("HOURLY,%s,%s,%.2f,%.2f,%.2f,%.2f", name, id, payRate, pretaxDeductions, ytdEarnings, ytdTaxesPaid);
+        return String.format("HOURLY,%s,%s,%.2f,%.2f,%.2f,%.2f", 
+                name, id, payRate, pretaxDeductions, ytdEarnings, ytdTaxesPaid);
     }
 }

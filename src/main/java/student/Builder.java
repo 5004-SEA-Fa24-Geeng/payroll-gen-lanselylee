@@ -65,10 +65,6 @@ public final class Builder {
         String employeeId = parts[0].trim();
         try {
             double hoursWorked = Double.parseDouble(parts[1].trim());
-
-            //hoursWorked init to 0
-            if (hoursWorked < 0) hoursWorked = 0;
-
             return new TimeCard(employeeId, hoursWorked);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Invalid number format in time card CSV: " + csv, e);
