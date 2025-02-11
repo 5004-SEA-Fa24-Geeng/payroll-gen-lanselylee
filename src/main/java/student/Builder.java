@@ -54,14 +54,12 @@ public final class Builder {
             throw new IllegalArgumentException("Invalid CSV format: " + csv);
         }
 
-        // 去掉空格，防止解析错误
         String employeeId = parts[0].trim();
         try {
             double hoursWorked = Double.parseDouble(parts[1].trim());
 
-            if (hoursWorked < 0) {
-                throw new IllegalArgumentException("Hours worked cannot be negative: " + hoursWorked);
-            }
+            //hoursWorked init to 0
+            if (hoursWorked < 0) hoursWorked = 0;
 
             return new TimeCard(employeeId, hoursWorked);
         } catch (NumberFormatException e) {
