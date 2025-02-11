@@ -11,8 +11,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Contains simple utilities for reading in a file. You are free to modify this file as you
- * need/want, but it is not required.
+ * Contains simple utilities for reading from and writing to files.
+ * This class provides methods to read lines from a file and write lines to a file,
+ * including the option to back up the existing file.
  */
 public final class FileUtil {
     /** header line required when writing out to the employee file. */
@@ -23,17 +24,14 @@ public final class FileUtil {
     public static final String PAY_STUB_HEADER =
             "employee_name,net_pay,taxes,ytd_earnings,ytd_taxes_paid";
 
-
-
     /**
      * Private constructor to prevent instantiation.
      */
     private FileUtil() {
-
     }
 
     /**
-     * Reads in a text file and returns a list of strings, one for each line in the file.
+     * Reads a text file and returns a list of strings, one for each line in the file.
      * 
      * @param file the file name
      * @return a list of strings, one for each line in the file
@@ -49,10 +47,8 @@ public final class FileUtil {
         return lines;
     }
 
-
-
     /**
-     * Writes the lines to the file. Will backup teh file if it exists.
+     * Writes the lines to the specified file. Will back up the file if it exists.
      * 
      * @param outFile the file name
      * @param lines the lines to write
@@ -62,11 +58,11 @@ public final class FileUtil {
     }
 
     /**
-     * Writes the lines to the file.
+     * Writes the lines to the specified file.
      * 
      * @param outFile the file name
      * @param lines the lines to write
-     * @param backup if true, will backup the file if it exists
+     * @param backup if true, will back up the file if it exists
      */
     public static void writeFile(String outFile, List<String> lines, boolean backup) {
         if (backup) {

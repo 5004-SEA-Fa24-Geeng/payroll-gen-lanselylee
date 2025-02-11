@@ -1,25 +1,23 @@
 package student;
 
 /**
- * An interface for the concept of the time card.
- * 
- * While you are free to modify this, we use this in the Builder to help convert the CSV file to a
- * list of time cards.
+ * Interface representing a time card for an employee.
+ * This interface defines the methods to retrieve the employee ID
+ * and the number of hours worked.
  */
 public interface ITimeCard {
-
+    
     /**
-     * Gets the employee ID.
-     * 
+     * Returns the employee ID associated with this time card.
+     *
      * @return the employee ID
      */
     String getEmployeeID();
 
     /**
-     * Gets the hours worked by the employee.
-     * 
-     * @return the hours worked by the employee
+     * Returns the number of hours worked recorded on this time card.
+     *
+     * @return the number of hours worked
      */
     double getHoursWorked();
-
 }

@@ -1,12 +1,19 @@
 package student;
 
+/**
+ * The Builder class is responsible for creating employee and time card objects from CSV data.
+ */
 public final class Builder {
 
     private Builder() {
     }
 
     /**
-     * initiate `employees.csv`，create `HourlyEmployee` or `SalaryEmployee`
+     * Creates an employee object from a CSV string.
+     *
+     * @param csv the CSV string containing employee data.
+     * @return an instance of IEmployee based on the CSV data.
+     * @throws IllegalArgumentException if the CSV is null, empty, or has an invalid format.
      */
     public static IEmployee buildEmployeeFromCSV(String csv) {
         if (csv == null || csv.trim().isEmpty()) {
@@ -18,7 +25,7 @@ public final class Builder {
             throw new IllegalArgumentException("Invalid CSV format: " + csv);
         }
 
-        // 去掉每个部分的空格，防止 CSV 解析错误
+        // Remove whitespace from each part to prevent CSV parsing errors
         String type = parts[0].trim();
         String name = parts[1].trim();
         String id = parts[2].trim();
@@ -42,7 +49,11 @@ public final class Builder {
     }
 
     /**
-     * 解析 `time_cards.csv`，创建 `TimeCard`
+     * Creates a time card object from a CSV string.
+     *
+     * @param csv the CSV string containing time card data.
+     * @return an instance of ITimeCard based on the CSV data.
+     * @throws IllegalArgumentException if the CSV is null, empty, or has an invalid format.
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
         if (csv == null || csv.trim().isEmpty()) {
@@ -54,7 +65,7 @@ public final class Builder {
             throw new IllegalArgumentException("Invalid CSV format: " + csv);
         }
 
-        // 去掉空格，防止解析错误
+        // Remove whitespace to prevent parsing errors
         String employeeId = parts[0].trim();
         try {
             double hoursWorked = Double.parseDouble(parts[1].trim());
